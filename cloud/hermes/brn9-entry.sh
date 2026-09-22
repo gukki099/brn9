@@ -8,4 +8,5 @@ export PATH="/opt/hermes/.venv/bin:$PATH"
 ) &
 
 envsubst '${PORT}' < /etc/nginx/nginx.conf > /tmp/nginx.conf
+mkdir -p /tmp/nginx/body /tmp/nginx/proxy /tmp/nginx/fastcgi /tmp/nginx/uwsgi /tmp/nginx/scgi
 exec nginx -c /tmp/nginx.conf -g 'daemon off;'
