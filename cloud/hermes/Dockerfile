@@ -11,7 +11,7 @@ COPY brn9-entry.sh /usr/local/bin/brn9-entry.sh
 RUN chmod +x /usr/local/bin/brn9-entry.sh
 
 COPY app/requirements.txt /srv/brn9/requirements.txt
-RUN /opt/hermes/.venv/bin/pip install --no-cache-dir -r /srv/brn9/requirements.txt
+RUN VIRTUAL_ENV=/opt/hermes/.venv uv pip install --no-cache-dir -r /srv/brn9/requirements.txt
 COPY app/main.py /srv/brn9/main.py
 
 CMD ["brn9-entry.sh"]
